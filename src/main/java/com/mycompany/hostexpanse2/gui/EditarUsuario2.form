@@ -50,31 +50,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                          <Component id="btnVolver" min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblApellido" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                                  <Component id="txtApellido" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                                  <Component id="lblContrasena" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
-                                  <Component id="txtContrasena" min="-2" pref="150" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                  <Component id="txtCedula" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                                  <Component id="lblConfirmarContrasena" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                                  <Component id="txtConfirmarContrasena" min="-2" pref="150" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblCorreo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
@@ -101,8 +83,31 @@
                                   <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnSalvarCambios" pref="150" max="32767" attributes="0"/>
-                                      <Component id="txtRespuesta" max="32767" attributes="0"/>
+                                      <Component id="btnSalvarCambios" pref="85" max="32767" attributes="0"/>
+                                      <Component id="txtRespuesta" pref="150" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                                          <Component id="txtCedula" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                                          <Component id="lblConfirmarContrasena" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblApellido" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                                          <Component id="txtApellido" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                                          <Component id="lblContrasena" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtContrasena" max="32767" attributes="0"/>
+                                      <Component id="txtConfirmarContrasena" pref="150" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -118,7 +123,7 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVolver" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -127,36 +132,42 @@
                       <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
                       <Component id="txtUsuario" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblApellido" min="-2" max="-2" attributes="0"/>
                       <Component id="txtApellido" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblContrasena" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtContrasena" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblContrasena" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtContrasena" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCedula" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblConfirmarContrasena" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCedula" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblConfirmarContrasena" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCorreo" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPregunta" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPregunta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblDireccion" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRespuesta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnSalvarCambios" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="txtConfirmarContrasena" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCorreo" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPregunta" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPregunta" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDireccion" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtRespuesta" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnSalvarCambios" min="-2" pref="74" max="-2" attributes="0"/>
                   <EmptySpace pref="59" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -165,12 +176,26 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Rounded MT Bold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Editar usuario"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnVolver">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Volver"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f7" green="fa" red="fe" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\crist\Documents\NetBeansProjects\hostExpanse\src\main\java\imagenes\flechaAtras.png"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
@@ -195,6 +220,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Usuario:"/>
           </Properties>
         </Component>
@@ -206,25 +234,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Contrase&#xf1;a:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtContrasena">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Rounded MT Bold" size="12" style="0"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtConfirmarContrasena">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Rounded MT Bold" size="12" style="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConfirmarContrasenaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblConfirmarContrasena">
           <Properties>
@@ -233,6 +247,9 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="*Confirmar contrase&#xf1;a:"/>
           </Properties>
@@ -244,6 +261,9 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="*Pregunta secreta:"/>
           </Properties>
@@ -273,6 +293,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Respuesta secreta:"/>
           </Properties>
         </Component>
@@ -291,6 +314,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Direcci&#xf3;n:"/>
           </Properties>
         </Component>
@@ -301,6 +327,9 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="*Correo:"/>
           </Properties>
@@ -327,6 +356,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Ced&#xfa;la:"/>
           </Properties>
         </Component>
@@ -337,6 +369,9 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="*Apellido:"/>
           </Properties>
@@ -367,6 +402,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="12" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*Nombre:"/>
           </Properties>
         </Component>
@@ -377,6 +415,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarCambiosActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtContrasena">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContrasenaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtConfirmarContrasena">
         </Component>
       </SubComponents>
     </Container>

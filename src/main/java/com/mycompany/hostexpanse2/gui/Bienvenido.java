@@ -76,7 +76,7 @@ public class Bienvenido extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(181, 221, 212));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\proyectosNetbeans\\hostExpanse2\\src\\main\\java\\imagenes\\summerSfondo220px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\summerSfondo220px.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

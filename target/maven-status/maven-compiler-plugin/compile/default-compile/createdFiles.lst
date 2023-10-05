@@ -17,7 +17,6 @@ com\mycompany\hostexpanse2\gui\BorrarUsuario$3.class
 com\mycompany\hostexpanse2\gui\LoginEmpleado$4.class
 com\mycompany\hostexpanse2\gui\Bienvenido$2.class
 com\mycompany\hostexpanse2\persistencia\UsuarioJpaController.class
-com\mycompany\hostexpanse2\gui\Registro$9.class
 com\mycompany\hostexpanse2\gui\Registro$1.class
 com\mycompany\hostexpanse2\gui\EditarUsuario$1.class
 com\mycompany\hostexpanse2\gui\Bienvenido$3.class

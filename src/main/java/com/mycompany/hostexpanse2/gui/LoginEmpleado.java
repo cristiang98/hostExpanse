@@ -60,11 +60,11 @@ public class LoginEmpleado extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(181, 221, 212));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblimageEmpleado.setIcon(new javax.swing.ImageIcon("D:\\proyectosNetbeans\\hostExpanse2\\src\\main\\java\\imagenes\\summerSfondo220px.png")); // NOI18N
+        lblimageEmpleado.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\summerSfondo220px.png")); // NOI18N
         jPanel2.add(lblimageEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 230, 180));
 
         btnVolver.setBackground(new java.awt.Color(181, 221, 212));
-        btnVolver.setIcon(new javax.swing.ImageIcon("D:\\proyectosNetbeans\\hostExpanse2\\src\\main\\java\\imagenes\\flechaAtras.png")); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\flechaAtras.png")); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.setBorderPainted(false);
         btnVolver.setPreferredSize(new java.awt.Dimension(80, 72));
@@ -73,7 +73,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 24, 24));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 340));
 

@@ -59,9 +59,12 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(181, 221, 212));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimagen.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\summerSfondo220px.png")); // NOI18N
         jPanel2.add(lblimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 230, 180));
 
         btnVolver.setBackground(new java.awt.Color(181, 221, 212));
+        btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\flechaAtras.png")); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.setBorderPainted(false);
         btnVolver.setPreferredSize(new java.awt.Dimension(80, 72));
@@ -70,21 +73,24 @@ public class Login extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 24, 24));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 340));
 
         lblContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lblContrasena.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContrasena.setText("Contraseña");
         jPanel1.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 120, 20));
 
         lblTitulo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Inicio de Sesión");
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, 20));
 
         lblUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Usuario");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 120, 20));

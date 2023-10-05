@@ -44,8 +44,6 @@ public class Registro extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtRespuesta = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
-        txtContrasena = new javax.swing.JTextField();
-        txtConfirmarContrasena = new javax.swing.JTextField();
         txtPregunta = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnRecuperar = new javax.swing.JButton();
@@ -53,6 +51,8 @@ public class Registro extends javax.swing.JFrame {
         btnBorrar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
         btnVolver2 = new javax.swing.JButton();
+        txtContrasena = new javax.swing.JPasswordField();
+        txtConfirmarContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,57 +62,69 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(254, 250, 247));
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Registro de Usuarios");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 170, -1));
 
         lblNombre.setBackground(new java.awt.Color(254, 250, 247));
         lblNombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("*Nombre:");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         lblApellido.setBackground(new java.awt.Color(254, 250, 247));
         lblApellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
         lblApellido.setText("*Apellido:");
         jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         lblCedula.setBackground(new java.awt.Color(254, 250, 247));
         lblCedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 0, 0));
         lblCedula.setText("*Cedúla:");
         jPanel1.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         lblDireccion.setBackground(new java.awt.Color(254, 250, 247));
         lblDireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
         lblDireccion.setText("*Dirección:");
         jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         lblCorreo.setBackground(new java.awt.Color(254, 250, 247));
         lblCorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblCorreo.setForeground(new java.awt.Color(0, 0, 0));
         lblCorreo.setText("*Correo:");
         jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         lblUsuario.setBackground(new java.awt.Color(254, 250, 247));
         lblUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("*Usuario:");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         lblContrasena.setBackground(new java.awt.Color(254, 250, 247));
         lblContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lblContrasena.setText("*Contraseña:");
         jPanel1.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         lblConfirmarContrasena.setBackground(new java.awt.Color(254, 250, 247));
         lblConfirmarContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblConfirmarContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lblConfirmarContrasena.setText("*Confirmar contraseña:");
         jPanel1.add(lblConfirmarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
 
         lblPregunta.setBackground(new java.awt.Color(254, 250, 247));
         lblPregunta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblPregunta.setForeground(new java.awt.Color(0, 0, 0));
         lblPregunta.setText("*Pregunta secreta:");
         jPanel1.add(lblPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         lblRespuesta.setBackground(new java.awt.Color(254, 250, 247));
         lblRespuesta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblRespuesta.setForeground(new java.awt.Color(0, 0, 0));
         lblRespuesta.setText("*Respuesta secreta:");
         jPanel1.add(lblRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
 
@@ -140,17 +152,6 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 150, -1));
-
-        txtContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, -1));
-
-        txtConfirmarContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        txtConfirmarContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtConfirmarContrasenaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtConfirmarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 150, -1));
 
         txtPregunta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtPregunta.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +201,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 150, -1));
 
         btnVolver2.setBackground(new java.awt.Color(254, 250, 247));
+        btnVolver2.setIcon(new javax.swing.ImageIcon("C:\\Users\\crist\\Documents\\NetBeansProjects\\hostExpanse\\src\\main\\java\\imagenes\\flechaAtras.png")); // NOI18N
         btnVolver2.setBorder(null);
         btnVolver2.setBorderPainted(false);
         btnVolver2.setPreferredSize(new java.awt.Dimension(80, 72));
@@ -208,7 +210,9 @@ public class Registro extends javax.swing.JFrame {
                 btnVolver2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        jPanel1.add(btnVolver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 24, 24));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, -1));
+        jPanel1.add(txtConfirmarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 150, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 370));
 
@@ -218,10 +222,6 @@ public class Registro extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void txtConfirmarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarContrasenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtConfirmarContrasenaActionPerformed
 
     private void txtPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreguntaActionPerformed
         // TODO add your handling code here:
@@ -335,8 +335,8 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtConfirmarContrasena;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPasswordField txtConfirmarContrasena;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
