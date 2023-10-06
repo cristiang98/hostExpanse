@@ -129,22 +129,28 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(lblRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setActionCommand("<Not Set>");
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 150, -1));
 
         txtApellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
 
         txtCedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 150, -1));
 
         txtCorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtCorreo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 150, -1));
 
         txtRespuesta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 150, -1));
 
         txtUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setToolTipText("");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +160,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 150, -1));
 
         txtPregunta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtPregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPreguntaActionPerformed(evt);
@@ -198,6 +205,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 100, -1));
 
         txtDireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 150, -1));
 
         btnVolver2.setBackground(new java.awt.Color(254, 250, 247));
@@ -211,7 +219,11 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnVolver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 24, 24));
+
+        txtContrasena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, -1));
+
+        txtConfirmarContrasena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtConfirmarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 150, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 370));

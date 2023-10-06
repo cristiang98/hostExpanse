@@ -96,6 +96,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
         jPanel1.add(lblUsuarioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 120, 20));
 
         txtUsuarioEmpleado.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtUsuarioEmpleado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuarioEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioEmpleadoActionPerformed(evt);

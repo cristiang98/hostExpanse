@@ -35,11 +35,12 @@ public class EditarUsuario extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 190));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 250, 247));
 
         txtCedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCedula.setActionCommand("<Not Set>");
 
         lblCedula.setBackground(new java.awt.Color(254, 250, 247));
@@ -94,7 +95,7 @@ public class EditarUsuario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEditarUsuario)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)

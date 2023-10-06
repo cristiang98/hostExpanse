@@ -69,6 +69,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         txtConfirmarContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 250, 247));
 
@@ -86,6 +87,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         });
 
         txtUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setToolTipText("");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +116,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         lblPregunta.setText("*Pregunta secreta:");
 
         txtPregunta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtPregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPreguntaActionPerformed(evt);
@@ -121,6 +124,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         });
 
         txtRespuesta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblRespuesta.setBackground(new java.awt.Color(254, 250, 247));
         lblRespuesta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -128,6 +132,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         lblRespuesta.setText("*Respuesta secreta:");
 
         txtDireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblDireccion.setBackground(new java.awt.Color(254, 250, 247));
         lblDireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -140,8 +145,10 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         lblCorreo.setText("*Correo:");
 
         txtCorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtCorreo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtCedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblCedula.setBackground(new java.awt.Color(254, 250, 247));
         lblCedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -154,8 +161,10 @@ public class EditarUsuario2 extends javax.swing.JFrame {
         lblApellido.setText("*Apellido:");
 
         txtApellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtNombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setActionCommand("<Not Set>");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,11 +184,14 @@ public class EditarUsuario2 extends javax.swing.JFrame {
             }
         });
 
+        txtContrasena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContrasenaActionPerformed(evt);
             }
         });
+
+        txtConfirmarContrasena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -339,7 +351,10 @@ public class EditarUsuario2 extends javax.swing.JFrame {
             Logger.getLogger(EditarUsuario2.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        EditarUsuario editarUsuario = new EditarUsuario();
         this.dispose();
+        editarUsuario.setVisible(true);
+        editarUsuario.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSalvarCambiosActionPerformed
 
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
