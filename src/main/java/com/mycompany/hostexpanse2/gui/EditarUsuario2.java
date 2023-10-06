@@ -9,6 +9,7 @@ import com.mycompany.hostexpanse2.model.Usuario;
 import com.mycompany.hostexpanse2.persistencia.ControladoraPersistencia;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -351,10 +352,7 @@ public class EditarUsuario2 extends javax.swing.JFrame {
             Logger.getLogger(EditarUsuario2.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        EditarUsuario editarUsuario = new EditarUsuario();
-        this.dispose();
-        editarUsuario.setVisible(true);
-        editarUsuario.setLocationRelativeTo(null);
+        JOptionPane.showMessageDialog(null, "Los cambios se han guardado exitosamente.");
     }//GEN-LAST:event_btnSalvarCambiosActionPerformed
 
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
