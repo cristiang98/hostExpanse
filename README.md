@@ -9,3 +9,8 @@
 **3- Una vez hecho lo anterior, debemos ejecutar el programa desde Login.java**
 
 ![a](https://cdn.discordapp.com/attachments/696207974791643166/1172008339538989127/paso3.png?ex=655ec0d3&is=654c4bd3&hm=3524a6c4d2b9819ebd631468f60d609461e559fa497f35ac4678f510d7ccd155&)
+
+## A TENER EN CUENTA:
+Se debe crear una cuenta nueva para poder iniciar sesión, si se quiere acceder al panel de administrador se debe otorgar los permisos mediante la base de datos cambiando el valor de permisos a 1
+
+![a](https://cdn.discordapp.com/attachments/696207974791643166/1172009702515802142/aclaracion.png?ex=655ec217&is=654c4d17&hm=813796513dc3eed57b52eb58fb4d05807e929aa84c5ffbbc0055a63022d6e84f&)
