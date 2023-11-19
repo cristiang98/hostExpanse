@@ -114,6 +114,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 100, -1));
 
         txtContrasena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContrasenaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 340));
@@ -159,6 +164,10 @@ public class Login extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContrasenaActionPerformed
 
     /**
      * @param args the command line arguments

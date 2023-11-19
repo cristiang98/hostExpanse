@@ -8,6 +8,7 @@ import com.mycompany.hostexpanse2.model.Habitacion;
 import com.mycompany.hostexpanse2.model.Reserva;
 import com.mycompany.hostexpanse2.model.Usuario;
 import com.mycompany.hostexpanse2.persistencia.exceptions.NonexistentEntityException;
+import java.util.List;
 
 /**
  *
@@ -68,6 +69,14 @@ public class ControladoraPersistencia {
     
     public void editarHabitacion(Reserva reserva) throws Exception{
         reservaJpa.edit(reserva);
+    }
+    
+    public List<Habitacion> encontrarHabitaciones(){
+        return roomJpa.findHabitacionEntities();
+    }
+    
+    public Habitacion findHabitacion(Integer idHabitacion){
+        return roomJpa.findHabitacion(idHabitacion);
     }
     
     

@@ -4,14 +4,29 @@
  */
 package com.mycompany.hostexpanse2.gui;
 
+import com.mycompany.hostexpanse2.model.Habitacion;
+import com.mycompany.hostexpanse2.model.Reserva;
 import com.mycompany.hostexpanse2.model.Usuario;
+import com.mycompany.hostexpanse2.persistencia.ControladoraPersistencia;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Drow
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    
+    private ControladoraPersistencia controladoraPersistencia = new ControladoraPersistencia();
+    DefaultTableModel tableModel = new DefaultTableModel();
+    DefaultComboBoxModel<String> comboModel = new DefaultComboBoxModel<>();
+    List<String> roomListNumero = new ArrayList<>();
 
    
     public MenuPrincipal(Usuario usuario) {
@@ -23,6 +38,50 @@ public class MenuPrincipal extends javax.swing.JFrame {
             btnAdmin.setEnabled(false);
             panelAdmin.setVisible(false);
         }
+        construirTabla();
+        llenarDatos();
+        comboHabitaciones.setModel(comboModel);
+        comboHabitaciones();
+    }
+    
+    public void comboHabitaciones(){
+        comboModel.removeAllElements();
+        roomListNumero.clear();
+        for (Habitacion habitacion : listHabitacionesNumero()){
+            if (habitacion.getIsDisponible() == true){
+                roomListNumero.add(habitacion.getNumeroPiso());
+            }
+        }
+        
+        comboModel.addAll(roomListNumero);
+        comboHabitaciones.repaint();
+    }
+    
+    public void construirTabla(){
+        tableModel.addColumn("Número de habitación");
+        tableModel.addColumn("Cantidad de camas");
+        tableModel.addColumn("Disponible");
+        tableModel.addColumn("Vista al mar");
+        this.tblRooms.setModel(tableModel);
+    }
+    
+    public void llenarDatos(){
+        List<Habitacion> habitaciones = controladoraPersistencia.encontrarHabitaciones();
+        
+        for (Habitacion habitacion : habitaciones){
+            String dispo = habitacion.getIsDisponible() ? "Si" : "No";
+            String vista = habitacion.getVistaAlMar() ? "Si" : "No";
+            Object[] rowData = {habitacion.getNumeroPiso(), habitacion.getCantidadCamas(), dispo,  vista};
+            tableModel.addRow(rowData);
+        }
+    }
+    
+    public List<Habitacion> listHabitacionesNumero(){
+        List<Habitacion> list = new ArrayList<>();
+        for (Habitacion habitacion : controladoraPersistencia.encontrarHabitaciones()){
+            list.add(habitacion);
+        }
+        return list;
     }
 
     /**
@@ -48,17 +107,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblHabitacion = new javax.swing.JLabel();
         txtNoches = new javax.swing.JTextField();
         lblNoches = new javax.swing.JLabel();
-        txtPrecioNoche = new javax.swing.JPasswordField();
         lblPrecioNoche = new javax.swing.JLabel();
         lblNumeroPersonas = new javax.swing.JLabel();
         txtNumeroPersonas = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         lblApellido = new javax.swing.JLabel();
-        txtContacto = new javax.swing.JPasswordField();
         lblContacto = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboHabitaciones = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        txtPrecioNoche = new javax.swing.JTextField();
+        panelEstados = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRooms = new javax.swing.JTable();
         panelAdmin = new javax.swing.JPanel();
         lblHabitaciones = new javax.swing.JLabel();
         btnCrearHabitacion = new javax.swing.JButton();
@@ -68,7 +130,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnRecuperarPerfil = new javax.swing.JButton();
         btnEditarPerfil = new javax.swing.JButton();
         btnBorrarPerfil = new javax.swing.JButton();
-        panelEstados = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -168,8 +229,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblNoches.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         lblNoches.setText("*Noches:");
 
-        txtPrecioNoche.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         lblPrecioNoche.setBackground(new java.awt.Color(254, 250, 247));
         lblPrecioNoche.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         lblPrecioNoche.setText("*Precio cada noche:");
@@ -188,48 +247,54 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblApellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         lblApellido.setText("*Apellido:");
 
-        txtContacto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         lblContacto.setBackground(new java.awt.Color(254, 250, 247));
         lblContacto.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         lblContacto.setText("*Contacto:");
 
         jButton1.setText("Reservar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(254, 250, 247));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Reserva de habitaciones");
 
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelReservasLayout = new javax.swing.GroupLayout(panelReservas);
         panelReservas.setLayout(panelReservasLayout);
         panelReservasLayout.setHorizontalGroup(
             panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelReservasLayout.createSequentialGroup()
-                .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelReservasLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelReservasLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(24, 24, 24)
                         .addComponent(lblNoches)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(txtNoches, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelReservasLayout.createSequentialGroup()
-                        .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPrecioNoche)
-                            .addComponent(lblApellido)
-                            .addComponent(lblNumeroPersonas))
-                        .addContainerGap(220, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelReservasLayout.createSequentialGroup()
-                        .addComponent(lblContacto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                        .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(23, 23, 23))))
+                    .addComponent(lblContacto)
+                    .addComponent(lblPrecioNoche)
+                    .addComponent(lblApellido)
+                    .addComponent(lblNumeroPersonas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txtTelefono)
+                    .addComponent(txtPrecioNoche))
+                .addGap(23, 23, 23))
             .addGroup(panelReservasLayout.createSequentialGroup()
                 .addGap(214, 214, 214)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +302,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelReservasLayout.createSequentialGroup()
                     .addGap(22, 22, 22)
-                    .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelReservasLayout.createSequentialGroup()
                             .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelReservasLayout.createSequentialGroup()
@@ -255,10 +320,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelReservasLayout.createSequentialGroup()
                                     .addGap(50, 50, 50)
                                     .addComponent(txtNumeroPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(panelReservasLayout.createSequentialGroup()
-                            .addComponent(lblHabitacion)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblHabitacion))
                     .addContainerGap(22, Short.MAX_VALUE)))
         );
         panelReservasLayout.setVerticalGroup(
@@ -272,17 +334,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNumeroPersonas)
                 .addGap(21, 21, 21)
                 .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPrecioNoche)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPrecioNoche)
+                        .addComponent(txtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContacto)
                     .addComponent(txtNoches, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNoches))
+                    .addComponent(lblNoches)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelReservasLayout.createSequentialGroup()
                     .addGap(194, 194, 194)
@@ -301,13 +365,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtNumeroPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)))
-                    .addGroup(panelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblHabitacion)
-                        .addComponent(txtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(235, Short.MAX_VALUE)))
+                    .addComponent(lblHabitacion)
+                    .addContainerGap(242, Short.MAX_VALUE)))
         );
 
         jPanel2.add(panelReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
+
+        panelEstados.setBackground(new java.awt.Color(254, 250, 247));
+
+        tblRooms.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblRooms);
+
+        javax.swing.GroupLayout panelEstadosLayout = new javax.swing.GroupLayout(panelEstados);
+        panelEstados.setLayout(panelEstadosLayout);
+        panelEstadosLayout.setHorizontalGroup(
+            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEstadosLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        panelEstadosLayout.setVerticalGroup(
+            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEstadosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(panelEstados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
         panelAdmin.setBackground(new java.awt.Color(254, 250, 247));
 
@@ -321,6 +417,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btnEditarHabitacion.setText("Modificar habitación");
+        btnEditarHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarHabitacionActionPerformed(evt);
+            }
+        });
 
         btnBorrarHabitacion.setText("Eliminar habitación");
         btnBorrarHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -398,21 +499,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel2.add(panelAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
-        panelEstados.setBackground(new java.awt.Color(255, 255, 51));
-
-        javax.swing.GroupLayout panelEstadosLayout = new javax.swing.GroupLayout(panelEstados);
-        panelEstados.setLayout(panelEstadosLayout);
-        panelEstadosLayout.setHorizontalGroup(
-            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        panelEstadosLayout.setVerticalGroup(
-            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(panelEstados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 670, 570));
 
         pack();
@@ -470,6 +556,57 @@ public class MenuPrincipal extends javax.swing.JFrame {
         borrarUsuario.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBorrarHabitacionActionPerformed
 
+    private void btnEditarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHabitacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarHabitacionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Reserva reserva = new Reserva();
+        Habitacion habitacion;
+        try {
+            reserva.setNombreHuesped(txtNombre.getText());
+            reserva.setApellidoHuesped(txtApellido.getText());
+            reserva.setCedulaHuesped(txtCedula.getText());
+            reserva.setNumeroPersonas(Integer.parseInt(txtNumeroPersonas.getText()));
+            reserva.setNumeroHabitacion((String) comboHabitaciones.getSelectedItem());
+            String num = (String)comboHabitaciones.getSelectedItem();
+            reserva.setNoches(Integer.parseInt(txtNoches.getText()));
+            reserva.setNumeroTelefono(txtTelefono.getText());
+            reserva.setNochePrecio(Integer.parseInt(txtPrecioNoche.getText()));
+            reserva.calcularReserva();
+            reserva.calcularTotal();
+            habitacion = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(num));
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Por favor verifique los datos correctamente, recuerde\nno usar carácteres especiales.");
+            return;
+        }
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtCedula.setText("");
+        txtNumeroPersonas.setText("");
+        comboHabitaciones.setSelectedIndex(0);
+        txtNoches.setText("");
+        txtTelefono.setText("");
+        txtPrecioNoche.setText("");
+        controladoraPersistencia.agregarReserva(reserva);
+        habitacion.switchDisponible();
+        try {
+            controladoraPersistencia.editarHabitacion(habitacion);
+        } catch (Exception ex) {
+            
+        }
+        tableModel = (DefaultTableModel) tblRooms.getModel();
+        tableModel.setRowCount(0);
+        llenarDatos();
+        comboHabitaciones();
+        
+        JOptionPane.showMessageDialog(null, "Reserva guardada correctamente.");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -482,12 +619,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnEstadoHabitaciones;
     private javax.swing.JButton btnRecuperarPerfil;
     private javax.swing.JButton btnReservas;
+    private javax.swing.JComboBox<String> comboHabitaciones;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblContacto;
@@ -501,12 +639,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelEstados;
     private javax.swing.JPanel panelReservas;
+    private javax.swing.JTable tblRooms;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JPasswordField txtContacto;
     private javax.swing.JTextField txtNoches;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroPersonas;
-    private javax.swing.JPasswordField txtPrecioNoche;
+    private javax.swing.JTextField txtPrecioNoche;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,4 +22,8 @@ public class Habitacion implements Serializable {
     private Boolean vistaAlMar;
     private Boolean isDisponible;
     
+    public void switchDisponible(){
+        this.isDisponible = !isDisponible;
+    }
+    
 }
