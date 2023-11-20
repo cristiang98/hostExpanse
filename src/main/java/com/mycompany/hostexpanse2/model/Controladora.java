@@ -56,4 +56,12 @@ public class Controladora {
     public void eliminarHabitacionById(Integer idHabitacion) throws NonexistentEntityException{
         control.eliminarHabitacionById(idHabitacion);
     }
+
+    public Integer encontrarReservaByCedula(String cedula) {
+        return control.encontrarReservaByCedula(cedula);
+    }
+    
+    public Reserva encontrarReservaById(Integer idReserva){
+        return control.encontrarReservaById(idReserva);
+    }
 }

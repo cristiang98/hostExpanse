@@ -67,10 +67,6 @@ public class ControladoraPersistencia {
         reservaJpa.create(reserva);
     }
     
-    public void editarHabitacion(Reserva reserva) throws Exception{
-        reservaJpa.edit(reserva);
-    }
-    
     public List<Habitacion> encontrarHabitaciones(){
         return roomJpa.findHabitacionEntities();
     }
@@ -79,6 +75,15 @@ public class ControladoraPersistencia {
         return roomJpa.findHabitacion(idHabitacion);
     }
     
+    public Reserva encontrarReservaById(Integer idReserva){
+        return reservaJpa.findReserva(idReserva);
+    }
     
+    public Integer encontrarReservaByCedula(String cedula){
+        return reservaJpa.encontrarIdByCedula(cedula);
+    }
     
+    public void editarReserva(Reserva reserva) throws Exception{
+        reservaJpa.edit(reserva);
+    }
 }

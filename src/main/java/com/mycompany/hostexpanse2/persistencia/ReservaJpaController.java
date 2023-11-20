@@ -12,7 +12,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -33,6 +35,21 @@ public class ReservaJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+    public Integer encontrarIdByCedula(String cedula){
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Integer> query = em.createQuery("SELECT u.idReserva FROM Reserva u WHERE u.cedulaHuesped = :cedula", Integer.class);
+        query.setParameter("cedula", cedula);
+        
+        try {
+            Integer personaId = query.getSingleResult();
+            return personaId;
+        } catch (NoResultException ex) {
+            return -1;
+        } finally {
+            em.close();
+        }
     }
 
     public void create(Reserva reserva) {

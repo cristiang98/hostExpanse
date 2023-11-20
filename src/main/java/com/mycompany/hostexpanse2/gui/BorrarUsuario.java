@@ -9,11 +9,13 @@ import com.mycompany.hostexpanse2.persistencia.exceptions.NonexistentEntityExcep
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import lombok.Setter;
 
 /**
  *
  * @author Drow
  */
+@Setter
 public class BorrarUsuario extends javax.swing.JFrame {
 
     Controladora controladora = new Controladora();
@@ -29,6 +31,14 @@ public class BorrarUsuario extends javax.swing.JFrame {
         lblEliminar.setText(letrero);
         lblCedula.setText(dato);
         this.senial = 1;
+    }
+    
+    public BorrarUsuario(String letrero, String dato, int senial){
+        initComponents();
+        lblEliminar.setText(letrero);
+        lblCedula.setText(dato);
+        this.senial = senial;
+        btnEliminar.setText("Modificar");
     }
 
     /**
@@ -141,6 +151,17 @@ public class BorrarUsuario extends javax.swing.JFrame {
                     controladora.eliminarHabitacionById(idHabitacion);
                 } catch (NonexistentEntityException ex) {
                     JOptionPane.showMessageDialog(null, "No existe la habitacion");
+                }
+            case 2:
+                Integer idReserva = controladora.encontrarReservaByCedula(txtCedula.getText());
+                try {
+                    ModificarReserva modificarReserva = new ModificarReserva(controladora.encontrarReservaById(idReserva));
+                    modificarReserva.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    modificarReserva.setVisible(true);
+                    modificarReserva.setLocationRelativeTo(null);
+                    this.dispose();
+                } catch (Exception e) {
+                    
                 }
         }
         
