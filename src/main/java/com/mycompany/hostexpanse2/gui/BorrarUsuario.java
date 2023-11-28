@@ -152,17 +152,6 @@ public class BorrarUsuario extends javax.swing.JFrame {
                 } catch (NonexistentEntityException ex) {
                     JOptionPane.showMessageDialog(null, "No existe la habitacion");
                 }
-            case 2:
-                Integer idReserva = controladora.encontrarReservaByCedula(txtCedula.getText());
-                try {
-                    ModificarReserva modificarReserva = new ModificarReserva(controladora.encontrarReservaById(idReserva));
-                    modificarReserva.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                    modificarReserva.setVisible(true);
-                    modificarReserva.setLocationRelativeTo(null);
-                    this.dispose();
-                } catch (Exception e) {
-                    
-                }
         }
         
     }//GEN-LAST:event_btnEliminarActionPerformed

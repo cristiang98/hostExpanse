@@ -34,12 +34,10 @@ public class CrearHabitacion extends javax.swing.JFrame {
         lblNumeroPiso = new javax.swing.JLabel();
         lblCantidadCamas = new javax.swing.JLabel();
         txtCantidadCamas = new javax.swing.JTextField();
-        lblVistaAlMar = new javax.swing.JLabel();
         lblIsDisponible = new javax.swing.JLabel();
         txtNumeroPiso = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         comboIsDisponible = new javax.swing.JComboBox<>();
-        comboVistaMar = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,10 +55,6 @@ public class CrearHabitacion extends javax.swing.JFrame {
 
         txtCantidadCamas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtCantidadCamas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        lblVistaAlMar.setBackground(new java.awt.Color(254, 250, 247));
-        lblVistaAlMar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        lblVistaAlMar.setText("*Vista al mar:");
 
         lblIsDisponible.setBackground(new java.awt.Color(254, 250, 247));
         lblIsDisponible.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -84,8 +78,6 @@ public class CrearHabitacion extends javax.swing.JFrame {
 
         comboIsDisponible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
 
-        comboVistaMar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-
         jLabel2.setBackground(new java.awt.Color(254, 250, 247));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -106,23 +98,20 @@ public class CrearHabitacion extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblCantidadCamas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCantidadCamas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblNumeroPiso))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCantidadCamas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblVistaAlMar)
+                                .addComponent(lblNumeroPiso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboVistaMar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblIsDisponible)
-                                .addGap(31, 31, 31)
-                                .addComponent(comboIsDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(comboIsDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))))
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(245, 245, 245)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(147, 147, 147)
@@ -136,16 +125,14 @@ public class CrearHabitacion extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVistaAlMar)
                     .addComponent(lblNumeroPiso)
-                    .addComponent(comboVistaMar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblIsDisponible)
+                    .addComponent(comboIsDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIsDisponible)
                     .addComponent(lblCantidadCamas)
-                    .addComponent(txtCantidadCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboIsDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addComponent(txtCantidadCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,15 +168,10 @@ public class CrearHabitacion extends javax.swing.JFrame {
         }
         habitacion.setNumeroPiso(txtNumeroPiso.getText());
         habitacion.setCantidadCamas(txtCantidadCamas.getText());
-        if (comboVistaMar.getSelectedItem().equals("Si")){
-            habitacion.setVistaAlMar(true);
-        } else {
-            habitacion.setVistaAlMar(false);
-        }
         if (comboIsDisponible.getSelectedItem().equals("Si")){
-            habitacion.setIsDisponible(true);
+            habitacion.setEstadoHabitacion("Desocupado");
         } else {
-            habitacion.setIsDisponible(false);
+            habitacion.setEstadoHabitacion("Ocupado");
         }
         
         controladoraPersistencia.agregarHabitacion(habitacion);
@@ -234,13 +216,11 @@ public class CrearHabitacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> comboIsDisponible;
-    private javax.swing.JComboBox<String> comboVistaMar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCantidadCamas;
     private javax.swing.JLabel lblIsDisponible;
     private javax.swing.JLabel lblNumeroPiso;
-    private javax.swing.JLabel lblVistaAlMar;
     private javax.swing.JTextField txtCantidadCamas;
     private javax.swing.JTextField txtNumeroPiso;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,7 @@ com\mycompany\hostexpanse2\gui\MenuPrincipal$5.class
 com\mycompany\hostexpanse2\gui\EditarUsuario2$3.class
 com\mycompany\hostexpanse2\gui\Registro$3.class
 com\mycompany\hostexpanse2\HostExpanse2.class
+com\mycompany\hostexpanse2\gui\MenuPrincipal$15.class
 com\mycompany\hostexpanse2\gui\ModificarReserva$2.class
 com\mycompany\hostexpanse2\gui\EditarUsuario.class
 com\mycompany\hostexpanse2\exceptions\NonexistentEntityException.class
@@ -16,6 +17,7 @@ com\mycompany\hostexpanse2\gui\Login$4.class
 com\mycompany\hostexpanse2\model\Habitacion.class
 com\mycompany\hostexpanse2\exceptions\PreexistingEntityException.class
 com\mycompany\hostexpanse2\gui\MenuPrincipal$11.class
+com\mycompany\hostexpanse2\gui\TerminarReserva.class
 com\mycompany\hostexpanse2\gui\MenuPrincipal$14.class
 com\mycompany\hostexpanse2\gui\MenuPrincipal$DisponibilidadCellRenderer.class
 com\mycompany\hostexpanse2\gui\EditarUsuario2$4.class
@@ -27,6 +29,7 @@ com\mycompany\hostexpanse2\model\Reserva_.class
 com\mycompany\hostexpanse2\gui\ModificarReserva.class
 com\mycompany\hostexpanse2\persistencia\UsuarioJpaController.class
 com\mycompany\hostexpanse2\gui\Login$5.class
+com\mycompany\hostexpanse2\gui\MenuPrincipal$17.class
 com\mycompany\hostexpanse2\gui\MenuPrincipal$4.class
 com\mycompany\hostexpanse2\persistencia\HabitacionJpaController.class
 com\mycompany\hostexpanse2\gui\Registro$1.class
@@ -48,6 +51,7 @@ com\mycompany\hostexpanse2\gui\MenuPrincipal.class
 com\mycompany\hostexpanse2\model\Controladora.class
 com\mycompany\hostexpanse2\model\Usuario.class
 com\mycompany\hostexpanse2\model\Reserva.class
+com\mycompany\hostexpanse2\gui\MenuPrincipal$16.class
 com\mycompany\hostexpanse2\gui\EditarUsuario2$2.class
 com\mycompany\hostexpanse2\gui\Login$3.class
 com\mycompany\hostexpanse2\model\Habitacion_.class

@@ -19,11 +19,14 @@ public class Habitacion implements Serializable {
     private Integer idHabitacion;
     private String numeroPiso;
     private String cantidadCamas;
-    private Boolean vistaAlMar;
-    private Boolean isDisponible;
+    private String estadoHabitacion;
     
-    public void switchDisponible(){
-        this.isDisponible = !isDisponible;
+    public void hacerOcupado(){
+        this.estadoHabitacion = "Ocupado";
+    }
+    
+    public void hacerDesocupado(){
+        this.estadoHabitacion = "Desocupado";
     }
     
 }

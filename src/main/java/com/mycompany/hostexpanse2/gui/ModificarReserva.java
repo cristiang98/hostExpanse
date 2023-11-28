@@ -62,7 +62,7 @@ public class ModificarReserva extends javax.swing.JFrame {
         comboModel.removeAllElements();
         roomListNumero.clear();
         for (Habitacion habitacion : listHabitacionesNumero()){
-            if (habitacion.getIsDisponible() == true){
+            if (habitacion.getEstadoHabitacion().equals("Desocupado")){
                 roomListNumero.add(habitacion.getNumeroPiso());
             }
         }
@@ -298,41 +298,49 @@ public class ModificarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LocalDate a = jdcEntrada.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-        LocalDate b = jdcSalida.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-        Habitacion habitacion;
-        Habitacion habitacionVieja;
         
-        if ((int) ChronoUnit.DAYS.between(a, b) <= -1){
-            JOptionPane.showMessageDialog(null, "Fecha de hospedaje inválida");
+        int op = JOptionPane.showConfirmDialog(this, "¿Estás seguro de modificar la reserva?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        
+        
+        if (op == JOptionPane.YES_OPTION){
+            LocalDate a = jdcEntrada.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            LocalDate b = jdcSalida.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            Habitacion habitacion;
+            Habitacion habitacionVieja;
+
+            if ((int) ChronoUnit.DAYS.between(a, b) <= -1){
+                JOptionPane.showMessageDialog(null, "Fecha de hospedaje inválida");
+                return;
+            }
+            try {
+                habitacionVieja = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(String.valueOf(reserva.getNumeroHabitacion())));
+                habitacionVieja.hacerDesocupado();
+                controladoraPersistencia.editarHabitacion(habitacionVieja);
+                reserva.setNombreHuesped(txtNombre.getText());
+                reserva.setApellidoHuesped(txtApellido.getText());
+                reserva.setCedulaHuesped(txtCedula.getText());
+                reserva.setNumeroPersonas(Integer.parseInt(txtNumeroPersonas.getText()));
+                reserva.setNumeroHabitacion((String) comboHabitaciones.getSelectedItem());
+                String num = (String)comboHabitaciones.getSelectedItem();
+                reserva.setNoches((int)ChronoUnit.DAYS.between(a, b));
+                reserva.setNumeroTelefono(txtTelefono.getText());
+                reserva.setNochePrecio(Integer.parseInt(txtPrecioNoche.getText()));
+                reserva.setFechaReservaEntrada(jdcEntrada.getDate());
+                reserva.setFechaReservaSalida(jdcSalida.getDate());
+                reserva.calcularReserva();
+                reserva.calcularTotal();
+                controladoraPersistencia.editarReserva(reserva);
+                habitacion = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(num));
+                habitacion.hacerOcupado();
+                controladoraPersistencia.editarHabitacion(habitacion);
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Por favor verifique los datos correctamente, recuerde\nno usar carácteres especiales.");
+                return;
+            }
+            comboHabitaciones();
+        } else {
             return;
         }
-        try {
-            habitacionVieja = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(String.valueOf(reserva.getNumeroHabitacion())));
-            habitacionVieja.switchDisponible();
-            controladoraPersistencia.editarHabitacion(habitacionVieja);
-            reserva.setNombreHuesped(txtNombre.getText());
-            reserva.setApellidoHuesped(txtApellido.getText());
-            reserva.setCedulaHuesped(txtCedula.getText());
-            reserva.setNumeroPersonas(Integer.parseInt(txtNumeroPersonas.getText()));
-            reserva.setNumeroHabitacion((String) comboHabitaciones.getSelectedItem());
-            String num = (String)comboHabitaciones.getSelectedItem();
-            reserva.setNoches((int)ChronoUnit.DAYS.between(a, b));
-            reserva.setNumeroTelefono(txtTelefono.getText());
-            reserva.setNochePrecio(Integer.parseInt(txtPrecioNoche.getText()));
-            reserva.setFechaReservaEntrada(jdcEntrada.getDate());
-            reserva.setFechaReservaSalida(jdcSalida.getDate());
-            reserva.calcularReserva();
-            reserva.calcularTotal();
-            controladoraPersistencia.editarReserva(reserva);
-            habitacion = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(num));
-            habitacion.switchDisponible();
-            controladoraPersistencia.editarHabitacion(habitacion);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Por favor verifique los datos correctamente, recuerde\nno usar carácteres especiales.");
-            return;
-        }
-        comboHabitaciones();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

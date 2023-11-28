@@ -86,4 +86,12 @@ public class ControladoraPersistencia {
     public void editarReserva(Reserva reserva) throws Exception{
         reservaJpa.edit(reserva);
     }
+    
+    public List<Reserva> encontrarReservas(){
+        return reservaJpa.findReservaEntities();
+    }
+    
+    public void eliminarReserva(Integer idReserva) throws NonexistentEntityException{
+        reservaJpa.destroy(idReserva);
+    }
 }
