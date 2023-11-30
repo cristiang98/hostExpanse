@@ -29,4 +29,8 @@ public class Habitacion implements Serializable {
         this.estadoHabitacion = "Desocupado";
     }
     
+    public void hacerAseo(){
+        this.estadoHabitacion = "Aseo";
+    }
+    
 }

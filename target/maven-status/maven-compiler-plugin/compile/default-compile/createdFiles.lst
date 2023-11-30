@@ -9,6 +9,7 @@ com\mycompany\hostexpanse2\exceptions\NonexistentEntityException.class
 com\mycompany\hostexpanse2\gui\MenuPrincipal$8.class
 com\mycompany\hostexpanse2\gui\CrearHabitacion.class
 com\mycompany\hostexpanse2\persistencia\exceptions\IllegalOrphanException.class
+com\mycompany\hostexpanse2\gui\MenuPrincipal$18.class
 com\mycompany\hostexpanse2\gui\ModificarReserva$3.class
 com\mycompany\hostexpanse2\gui\CrearHabitacion$1.class
 com\mycompany\hostexpanse2\gui\Login$1.class

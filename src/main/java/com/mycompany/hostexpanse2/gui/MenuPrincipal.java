@@ -91,9 +91,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public void llenarDatos(){
         List<Habitacion> habitaciones = controladoraPersistencia.encontrarHabitaciones();
-        
+        String dispo = "";
         for (Habitacion habitacion : habitaciones){
-            String dispo = habitacion.getEstadoHabitacion().equals("Desocupado") ? "Desocupado" : "Ocupado";
+            if (habitacion.getEstadoHabitacion().equals("Desocupado")){
+                dispo = "Desocupado";
+            } else if (habitacion.getEstadoHabitacion().equals("Ocupado")){
+                dispo = "Ocupado";
+            } else if (habitacion.getEstadoHabitacion().equals("Aseo")){
+                dispo = "Aseo";
+            }
+//            String dispo = habitacion.getEstadoHabitacion().equals("Desocupado") ? "Desocupado" : "Ocupado";
             TableColumn tableColumn = tblRooms.getColumn("Disponibilidad");
             tableColumn.setCellRenderer(new DisponibilidadCellRenderer());
             Object[] rowData = {habitacion.getNumeroPiso(), habitacion.getCantidadCamas(), dispo};
@@ -153,6 +160,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnAdmin = new javax.swing.JButton();
         btnEstadoReservas = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        panelEstados = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRooms = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         panelEstadoReservas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblReservasPersonas = new javax.swing.JTable();
@@ -183,10 +195,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblHabitacion3 = new javax.swing.JLabel();
         lblPrecioTotal = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        panelEstados = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRooms = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
         panelAdmin = new javax.swing.JPanel();
         lblHabitaciones = new javax.swing.JLabel();
         btnCrearHabitacion = new javax.swing.JButton();
@@ -271,6 +279,65 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(254, 250, 247));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelEstados.setBackground(new java.awt.Color(254, 250, 247));
+
+        tblRooms.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblRooms);
+
+        jButton4.setText("Actualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Cambiar aseo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelEstadosLayout = new javax.swing.GroupLayout(panelEstados);
+        panelEstados.setLayout(panelEstadosLayout);
+        panelEstadosLayout.setHorizontalGroup(
+            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEstadosLayout.createSequentialGroup()
+                .addGroup(panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelEstadosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelEstadosLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        panelEstadosLayout.setVerticalGroup(
+            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEstadosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(panelEstados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
         panelEstadoReservas.setBackground(new java.awt.Color(254, 250, 247));
 
@@ -524,54 +591,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         jPanel2.add(panelReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
-
-        panelEstados.setBackground(new java.awt.Color(254, 250, 247));
-
-        tblRooms.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblRooms);
-
-        jButton4.setText("Actualizar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelEstadosLayout = new javax.swing.GroupLayout(panelEstados);
-        panelEstados.setLayout(panelEstadosLayout);
-        panelEstadosLayout.setHorizontalGroup(
-            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEstadosLayout.createSequentialGroup()
-                .addGroup(panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelEstadosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelEstadosLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-        panelEstadosLayout.setVerticalGroup(
-            panelEstadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEstadosLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(panelEstados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
         panelAdmin.setBackground(new java.awt.Color(254, 250, 247));
 
@@ -862,7 +881,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     terminarReserva.setVisible(true);
                     terminarReserva.setLocationRelativeTo(null);
                     Habitacion hb = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(res.getNumeroHabitacion()));
-                    hb.hacerDesocupado();
+                    hb.hacerAseo();
                     controladoraPersistencia.editarHabitacion(hb);
                     jButton5ActionPerformed(evt);
                     jButton4ActionPerformed(evt);
@@ -873,6 +892,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int selectedRow = tblRooms.getSelectedRow();
+        System.out.println(selectedRow);
+        if (selectedRow != -1){
+            Habitacion hb = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso((String) tblRooms.getValueAt(selectedRow, 0)));
+            System.out.println(hb.getNumeroPiso());
+            if (hb.getEstadoHabitacion().equals("Aseo")){
+                List<Reserva> resList = controladoraPersistencia.encontrarReservas();
+                for (Reserva res : resList){
+                    if (res.getNumeroHabitacion().equals(hb.getNumeroPiso())){
+                        hb.setEstadoHabitacion("Ocupado");
+                        System.out.println(hb.getNumeroPiso());
+                        try {
+                            controladoraPersistencia.editarHabitacion(hb);
+                            jButton4ActionPerformed(evt);
+                            return;
+                        } catch (Exception ex) {
+                        }
+                    }
+                }
+                hb.setEstadoHabitacion("Desocupado");
+                try {
+                    controladoraPersistencia.editarHabitacion(hb);
+                    jButton4ActionPerformed(evt);
+                } catch (Exception ex) {
+                    
+                }
+            } else if (hb.getEstadoHabitacion().equals("Ocupado") || hb.getEstadoHabitacion().equals("Desocupado")) {
+                hb.setEstadoHabitacion("Aseo");
+                System.out.println(hb.getNumeroPiso());
+                try {
+                    controladoraPersistencia.editarHabitacion(hb);
+                    jButton4ActionPerformed(evt);
+                } catch (Exception ex) {
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     
 
@@ -894,6 +952,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -949,6 +1008,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 setBackground(Color.GREEN);
             } else if ("Termina hoy".equals(disponibilidad)) {
                 setBackground(Color.RED);
+            } else if ("Aseo".equals(disponibilidad)){
+                setBackground(Color.CYAN);
             }
             
             else {
