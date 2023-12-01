@@ -49,7 +49,6 @@ public class Login extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        btnRecuperarConstasena = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         txtContrasena = new javax.swing.JPasswordField();
@@ -90,10 +89,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 100, -1));
-
-        btnRecuperarConstasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        btnRecuperarConstasena.setText("Recuperar Contraseña");
-        jPanel1.add(btnRecuperarConstasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         btnIngresar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnIngresar.setText("Ingresar");
@@ -206,7 +201,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
-    private javax.swing.JButton btnRecuperarConstasena;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -313,15 +313,20 @@ public class ModificarReserva extends javax.swing.JFrame {
                 return;
             }
             try {
-                habitacionVieja = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(String.valueOf(reserva.getNumeroHabitacion())));
-                habitacionVieja.hacerDesocupado();
-                controladoraPersistencia.editarHabitacion(habitacionVieja);
                 reserva.setNombreHuesped(txtNombre.getText());
                 reserva.setApellidoHuesped(txtApellido.getText());
                 reserva.setCedulaHuesped(txtCedula.getText());
                 reserva.setNumeroPersonas(Integer.parseInt(txtNumeroPersonas.getText()));
-                reserva.setNumeroHabitacion((String) comboHabitaciones.getSelectedItem());
-                String num = (String)comboHabitaciones.getSelectedItem();
+                if (comboHabitaciones.getSelectedIndex() != -1){
+                    habitacionVieja = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(String.valueOf(reserva.getNumeroHabitacion())));
+                    habitacionVieja.hacerDesocupado();
+                    controladoraPersistencia.editarHabitacion(habitacionVieja);
+                    reserva.setNumeroHabitacion((String) comboHabitaciones.getSelectedItem());
+                    String num = (String)comboHabitaciones.getSelectedItem();
+                    habitacion = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(num));
+                    habitacion.hacerOcupado();
+                    controladoraPersistencia.editarHabitacion(habitacion);
+                }
                 reserva.setNoches((int)ChronoUnit.DAYS.between(a, b));
                 reserva.setNumeroTelefono(txtTelefono.getText());
                 reserva.setNochePrecio(Integer.parseInt(txtPrecioNoche.getText()));
@@ -330,9 +335,6 @@ public class ModificarReserva extends javax.swing.JFrame {
                 reserva.calcularReserva();
                 reserva.calcularTotal();
                 controladoraPersistencia.editarReserva(reserva);
-                habitacion = controladoraPersistencia.findHabitacion(controladoraPersistencia.encontrarIdByNumeroPiso(num));
-                habitacion.hacerOcupado();
-                controladoraPersistencia.editarHabitacion(habitacion);
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "Por favor verifique los datos correctamente, recuerde\nno usar carácteres especiales.");
                 return;

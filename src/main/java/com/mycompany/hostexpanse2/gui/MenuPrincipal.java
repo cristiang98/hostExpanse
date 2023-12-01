@@ -41,6 +41,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
    
     public MenuPrincipal(Usuario usuario) {
         initComponents();
+        btnEditarHabitacion.setEnabled(false);
+        btnRecuperarPerfil.setEnabled(false);
         panelReservas.setVisible(true);
         panelAdmin.setVisible(false);
         panelEstados.setVisible(false);
@@ -126,7 +128,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
         for (Reserva reserva : reservas){
+            LocalDate resDate = reserva.getFechaReservaSalida().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
             String dispo = formatoFecha.format(reserva.getFechaReservaSalida()).equals(fFecha.format(fechaActual)) ? "Termina hoy" : formatoFecha.format(reserva.getFechaReservaSalida());
+            if (fechaActual.isAfter(resDate)){
+                dispo = "Expiró";
+            }
             TableColumn tableColumn = tblReservasPersonas.getColumn("Fecha de salida");
             tableColumn.setCellRenderer(new DisponibilidadCellRenderer());
             Object[] rowData = {reserva.getCedulaHuesped(), reserva.getNombreHuesped() + " " + reserva.getApellidoHuesped(), reserva.getNumeroHabitacion(), reserva.getNumeroTelefono(),
@@ -160,6 +166,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnAdmin = new javax.swing.JButton();
         btnEstadoReservas = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        panelAdmin = new javax.swing.JPanel();
+        lblHabitaciones = new javax.swing.JLabel();
+        btnCrearHabitacion = new javax.swing.JButton();
+        btnEditarHabitacion = new javax.swing.JButton();
+        btnBorrarHabitacion = new javax.swing.JButton();
+        lblPerfiles = new javax.swing.JLabel();
+        btnRecuperarPerfil = new javax.swing.JButton();
+        btnEditarPerfil = new javax.swing.JButton();
+        btnBorrarPerfil = new javax.swing.JButton();
         panelEstados = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRooms = new javax.swing.JTable();
@@ -195,15 +210,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblHabitacion3 = new javax.swing.JLabel();
         lblPrecioTotal = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        panelAdmin = new javax.swing.JPanel();
-        lblHabitaciones = new javax.swing.JLabel();
-        btnCrearHabitacion = new javax.swing.JButton();
-        btnEditarHabitacion = new javax.swing.JButton();
-        btnBorrarHabitacion = new javax.swing.JButton();
-        lblPerfiles = new javax.swing.JLabel();
-        btnRecuperarPerfil = new javax.swing.JButton();
-        btnEditarPerfil = new javax.swing.JButton();
-        btnBorrarPerfil = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -279,6 +285,100 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(254, 250, 247));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelAdmin.setBackground(new java.awt.Color(254, 250, 247));
+
+        lblHabitaciones.setText("Gestionar habitaciones");
+
+        btnCrearHabitacion.setText("Crear habitación");
+        btnCrearHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearHabitacionActionPerformed(evt);
+            }
+        });
+
+        btnEditarHabitacion.setText("Modificar habitación");
+        btnEditarHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarHabitacionActionPerformed(evt);
+            }
+        });
+
+        btnBorrarHabitacion.setText("Eliminar habitación");
+        btnBorrarHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarHabitacionActionPerformed(evt);
+            }
+        });
+
+        lblPerfiles.setText("Gestionar perfiles");
+
+        btnRecuperarPerfil.setText("Recuperar perfil");
+
+        btnEditarPerfil.setText("Modificar perfil");
+        btnEditarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarPerfilActionPerformed(evt);
+            }
+        });
+
+        btnBorrarPerfil.setText("Eliminar perfil");
+        btnBorrarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarPerfilActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
+        panelAdmin.setLayout(panelAdminLayout);
+        panelAdminLayout.setHorizontalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAdminLayout.createSequentialGroup()
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCrearHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBorrarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(lblHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRecuperarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
+                        .addComponent(lblPerfiles)
+                        .addGap(25, 25, 25)))
+                .addContainerGap(255, Short.MAX_VALUE))
+        );
+        panelAdminLayout.setVerticalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addComponent(lblHabitaciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCrearHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBorrarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addComponent(lblPerfiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRecuperarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(173, 173, 173))
+        );
+
+        jPanel2.add(panelAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
         panelEstados.setBackground(new java.awt.Color(254, 250, 247));
 
@@ -592,100 +692,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel2.add(panelReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
 
-        panelAdmin.setBackground(new java.awt.Color(254, 250, 247));
-
-        lblHabitaciones.setText("Gestionar habitaciones");
-
-        btnCrearHabitacion.setText("Crear habitación");
-        btnCrearHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearHabitacionActionPerformed(evt);
-            }
-        });
-
-        btnEditarHabitacion.setText("Modificar habitación");
-        btnEditarHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarHabitacionActionPerformed(evt);
-            }
-        });
-
-        btnBorrarHabitacion.setText("Eliminar habitación");
-        btnBorrarHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarHabitacionActionPerformed(evt);
-            }
-        });
-
-        lblPerfiles.setText("Gestionar perfiles");
-
-        btnRecuperarPerfil.setText("Recuperar perfil");
-
-        btnEditarPerfil.setText("Modificar perfil");
-        btnEditarPerfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarPerfilActionPerformed(evt);
-            }
-        });
-
-        btnBorrarPerfil.setText("Eliminar perfil");
-        btnBorrarPerfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarPerfilActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
-        panelAdmin.setLayout(panelAdminLayout);
-        panelAdminLayout.setHorizontalGroup(
-            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCrearHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBorrarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(lblHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRecuperarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
-                        .addComponent(lblPerfiles)
-                        .addGap(25, 25, 25)))
-                .addContainerGap(255, Short.MAX_VALUE))
-        );
-        panelAdminLayout.setVerticalGroup(
-            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addComponent(lblHabitaciones)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCrearHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEditarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBorrarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addComponent(lblPerfiles)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRecuperarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(173, 173, 173))
-        );
-
-        jPanel2.add(panelAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 630, 530));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 670, 570));
 
         pack();
@@ -745,10 +751,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         borrarUsuario.setVisible(true);
         borrarUsuario.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBorrarHabitacionActionPerformed
-
-    private void btnEditarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHabitacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarHabitacionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
@@ -885,6 +887,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     controladoraPersistencia.editarHabitacion(hb);
                     jButton5ActionPerformed(evt);
                     jButton4ActionPerformed(evt);
+                    comboHabitaciones();
                 }
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "Selecciona una reserva");
@@ -930,7 +933,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         }
+        comboHabitaciones();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void btnEditarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHabitacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarHabitacionActionPerformed
 
     
 
@@ -1010,6 +1018,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 setBackground(Color.RED);
             } else if ("Aseo".equals(disponibilidad)){
                 setBackground(Color.CYAN);
+            } else if ("Expiró".equals(disponibilidad)){
+                setBackground(Color.GRAY);
             }
             
             else {
